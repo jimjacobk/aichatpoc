@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My App — DB Assistant</title>
+  <style>
+    /* Your existing page styles go here */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #080a0d;
+      color: #c4c9d4;
+      min-height: 100vh;
+      padding: 60px 40px;
+    }
+    h1 { font-size: 28px; font-weight: 600; color: #e8ecf4; margin-bottom: 12px; }
+    p  { font-size: 15px; color: #6b7280; line-height: 1.7; max-width: 540px; }
+  </style>
+</head>
+<body>
+
+  <!-- Your existing page content -->
+  <h1>Organisation Dashboard</h1>
+  <p>This is your existing page. The chat widget floats in the corner — click the balloon to open it.</p>
+
+  <!-- No mount div needed — the widget appends itself to <body> -->
+
+  <!-- ① React via CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+
+  <!-- ② Widget bundle -->
+  <script src="chat-widget.js"></script>
+
+  <!-- ③ Init — no `container` needed anymore -->
+  <script>
+    DBChatWidget.init({
+      backendUrl:  'http://localhost:8000',
+      title:       'Data Assistant',
+      position:    'bottom-right',   // 'bottom-right' | 'bottom-left' | 'bottom-center'
+      offset:      { x: 24, y: 24 },
+      balloonIcon: '🗄️',
+      accentColor: '#4f8ef7',
+      placeholder: 'Ask anything about your data…',
+      suggestions: [
+        'How many customers do we have?',
+        'Top 5 products by revenue this month',
+        'Show orders placed today',
+        'Which region had the highest sales?',
+      ],
+    });
+  </script>
+
+</body>
+</html>
