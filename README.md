@@ -9,8 +9,10 @@
 ### export DB_USER=... DB_PASSWORD=...
 
 # 3. Start backend (terminal 1)
-### cd backend && uvicorn main:app --reload --port 8000
+### cd backend
+### uvicorn main:app --reload --port 8000
 
 # 4. Start UI (terminal 2)
-### cd frontend && python -m http.server 3000
+### cd frontend
+### python -m http.server 3000
 ### http://localhost:3000/
